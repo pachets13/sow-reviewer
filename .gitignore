@@ -1,0 +1,12 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# User reviews (the user's working files shouldn't be in version control)
+reviews/*
+!reviews/.gitkeep
