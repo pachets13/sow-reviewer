@@ -12,38 +12,43 @@ If you run a different kind of agency or serve a different audience, the diagnos
 
 ## Prerequisites
 
-- Claude Code installed and working in your terminal.
+- [Claude Code](https://docs.claude.com/en/docs/claude-code) installed and working in your terminal.
 - An Anthropic API key or Claude subscription that supports Claude Code.
 
 If you've never used Claude Code, the setup takes about five minutes — see Anthropic's docs linked above.
 
 ## How to use it
 
-1. Clone or download this repo:
+1. **Clone or download this repo:**
 
    ```bash
    git clone [repo-url]
    cd sow-reviewer
    ```
 
-2. Open Claude Code in the folder:
+2. **Open Claude Code in the folder:**
 
    ```bash
    claude
    ```
 
-3. Ask Claude to review your SOW. Two ways to do this:
+3. **Ask Claude to review your SOW.** Two ways to do this:
 
-   - **Reference a file in the `drafts/` folder.** Save your draft SOW as a markdown or text file in `drafts/` (e.g., `drafts/my-client-sow.md`), then tell Claude: "Review the SOW in `drafts/my-client-sow.md`"
-   - **Paste the SOW directly.** Tell Claude: "Review this SOW:" followed by the SOW text pasted into your message.
+   - **Reference a file in the `drafts/` folder.** Save your draft SOW as a markdown or text file in `drafts/` (e.g., `drafts/my-client-sow.md`), then tell Claude: *"Review the SOW in drafts/my-client-sow.md"*
+   - **Paste the SOW directly.** Tell Claude: *"Review this SOW:"* followed by the SOW text pasted into your message.
 
-4. Choose your output format. Before producing the review, the reviewer will ask whether you want a quick terminal output or a written review file saved to `reviews/`. Pick whichever fits your workflow — terminal for fast feedback, written file when you want to keep or share the review.
+4. **Choose your output format.** Before producing the review, the reviewer will ask whether you want a quick terminal output or a written review file saved to `reviews/`. Pick whichever fits your workflow — terminal for fast feedback, written file when you want to keep or share the review.
 
-5. Push back where you have context the reviewer doesn't. The reviewer will name the risks you're accepting and defer on the decision. It won't fold to social pressure, but it respects your business context when you provide it.
+5. **Push back where you have context the reviewer doesn't.** The reviewer will name the risks you're accepting and defer on the decision. It won't fold to social pressure, but it respects your business context when you provide it.
 
-### Try it out immediately
+## Try it out immediately
 
-A sample SOW is included in `drafts/sample-sow.md` so you can test the reviewer before working with a real document. Just open Claude Code in this folder and tell it: "Review the SOW in `drafts/sample-sow.md`." Replace or delete the sample whenever you're ready to use your own SOWs.
+Two sample SOWs are included in `drafts/` so you can test the reviewer before working with a real document:
+
+- `drafts/sample-northstar-roofing-sow.md` — a web project SOW (website redesign for a roofing company)
+- `drafts/sample-coastal-comfort-sow.md` — a hybrid SOW (website redesign + CRM setup + post-launch retainer for an HVAC company)
+
+Open Claude Code in this folder and tell it: *"Review the SOW in drafts/sample-northstar-roofing-sow.md"* (or *"...in drafts/sample-coastal-comfort-sow.md"*). Replace or delete the samples whenever you're ready to use your own SOWs.
 
 ## What you get back
 
@@ -56,7 +61,7 @@ A structured diagnostic review, organized by severity:
 
 Each flag names the clause, the failure mode it creates, and a specific revision direction. The reviewer is opinionated and direct — it won't soften flags to be polite, and it won't return "looks good" without explanation.
 
-What it does not return: a polished rewrite of your SOW. The output is a diagnostic, not a redraft. You make the revisions yourself, with the reviewer's reasoning in front of you.
+What it does *not* return: a polished rewrite of your SOW. The output is a diagnostic, not a redraft. You make the revisions yourself, with the reviewer's reasoning in front of you.
 
 ## What this doesn't do
 
@@ -70,7 +75,7 @@ If your SOW falls into one of these categories, the reviewer will tell you and d
 
 ## How the folder works
 
-The folder uses a layered structure so different parts of the reviewer apply to different parts of the SOW. Identity, response rules, and the two foundational reference files (`deliverable-language-patterns`, `smb-home-services-context`) inform every review. Trigger-based reference files (`red-flag-catalog`, `pricing-and-ownership`) come into play when the SOW contains language those files are built to catch.
+The folder uses a layered structure so different parts of the reviewer apply to different parts of the SOW. Identity, response rules, and the two foundational reference files (deliverable-language-patterns, smb-home-services-context) inform every review. Trigger-based reference files (red-flag-catalog, pricing-and-ownership) come into play when the SOW contains language those files are built to catch.
 
 You don't need to manage what's used when — Claude reads the folder structure and applies the relevant frameworks based on the SOW in front of it.
 
@@ -89,16 +94,17 @@ sow-reviewer/
 │   ├── red-flag-catalog.md               ← scannable pattern library for fast pass
 │   └── pricing-and-ownership.md          ← deep-dive on pricing models and account ownership
 ├── drafts/
-│   └── sample-sow.md                  ← sample SOW for testing the reviewer
+│   ├── sample-northstar-roofing-sow.md   ← web project sample SOW
+│   └── sample-coastal-comfort-sow.md     ← hybrid (web + CRM + retainer) sample SOW
 └── reviews/
     └── (reviewer writes reviews here when you choose file output)
 ```
 
 ## Where to start
 
-If you want to see what the reviewer does before using it, read `examples.md` — three worked reviews across web project, marketing ops, and maintenance retainer SOWs.
+If you want to see what the reviewer does before using it, read [examples.md](./examples.md) — three worked reviews across web project, marketing ops, and maintenance retainer SOWs.
 
-If you want to use the reviewer immediately, follow the steps in **How to use it** above. Try it on `drafts/sample-sow.md` first.
+If you want to use the reviewer immediately, follow the steps in **How to use it** above. Try it on either sample SOW in `drafts/` first.
 
 ---
 
